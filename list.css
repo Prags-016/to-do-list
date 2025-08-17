@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: cadetblue;
+}
+.container{
+    background-color: cadetblue;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+.text{
+    margin-top: 75px;
+    margin-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    color:rgb(11, 11, 11);
+    border-radius: 35px;
+    justify-content: center;
+    background-color: chartreuse;
+    font-weight: 200;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#i1{
+    font-weight: 300;
+    font-size: 50px;
+    margin-bottom: 35px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+    text-align: center;
+}
+#img1{
+    width: 100px;
+    height: 80px;
+    border-radius: 30px;
+    padding: 10px;
+    object-fit: cover;
+}
+#btn{
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-left: 25px;
+    border-radius: 40px;
+    background-color: rgb(238, 178, 157);
+    color: rgb(6, 6, 6);
+    size: 75px;
+    cursor: pointer;
+    border: none;
+}
+ul li{
+    font-size: 25px;
+    padding: 17px 50px 25px 60px;
+    cursor: pointer;
+    user-select: none;
+    background-color: bisque;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    position: relative;
+    list-style: none;
+}
+ul li::before{
+content: '';
+position: absolute;
+height: 28px;
+width: 28px;
+color: black;
+background-image: url(https://www.svgrepo.com/show/343025/checkbox-empty.svg);
+background-size: cover;
+background-position: center;
+left: 15px;
+top: 50%;
+transform: translateY(-50%);
+}
+ul li.checked{
+    color: black;
+    text-decoration: line-through;
+    text-decoration-color: #333;
+    text-decoration-thickness: 2px;
+}
+ul li.checked::before{
+    background-image: url(https://tse1.mm.bing.net/th/id/OIP.QbzAwll-1DzSfKRTTMa1ewHaHa?pid=Api&P=0&h=180);
+}
+ul li span{
+    position: absolute;
+    font-size: 30px;
+    color: black;
+    right: 15px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+}
