@@ -10,7 +10,7 @@ function addTask(){
         li.innerHTML=inputBox.value;
         listConatainer.appendChild(li);
         let span = document.createElement("span");
-        span.innerHTML= "\u00d7";
+        span.innerHTML = "\u00d7";
         li.appendChild(span);
         
         // Add click event to toggle checked class
