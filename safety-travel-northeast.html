@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North East India Travel Safety Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 50%, #6b8e23 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .sos-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4);
+            animation: pulse 2s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .sos-button:hover {
+            background: #ff6666;
+            transform: scale(1.1);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: #f0f8f0;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .safety-guidelines {
+            background: #f0f8f0;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .safety-guidelines h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .guidelines-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .guideline-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .guideline-item h4 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .emergency-contacts {
+            background: #ff6b6b;
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .emergency-contacts h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .weather-widget {
+            background: #f0f8f0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .weather-widget h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .weather-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .weather-item {
+            text-align: center;
+        }
+
+        .weather-item i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #f0f8f0;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .sos-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-mountain"></i> North East India Travel Safety</h1>
+            <p>Your comprehensive guide to safe travel in the beautiful North East region</p>
+        </div>
+
+        <!-- SOS Button -->
+        <button class="sos-button" onclick="openSOSModal()">
+            <i class="fas fa-exclamation-triangle"></i>
+        </button>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Safety Guidelines</h3>
+                <p>Comprehensive safety tips and guidelines for traveling in North East India, including weather conditions, local customs, and emergency procedures.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Emergency Contacts</h3>
+                <p>Quick access to emergency numbers, local police, medical services, and embassy contacts for all North East states.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                <h3>Weather Updates</h3>
+                <p>Real-time weather information and alerts for different regions in North East India to help you plan your journey safely.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>Route Planning</h3>
+                <p>Safe route recommendations, road conditions, and alternative paths to avoid hazardous areas during your travel.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Local Community</h3>
+                <p>Connect with local guides, travel groups, and community members who can provide real-time safety updates and assistance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h3>Language Support</h3>
+                <p>Basic phrases and emergency communication in local languages to help you communicate during emergencies.</p>
+            </div>
+        </div>
+
+        <!-- Safety Guidelines -->
+        <div class="safety-guidelines">
+            <h2><i class="fas fa-list-check"></i> Essential Safety Guidelines</h2>
+            <div class="guidelines-list">
+                <div class="guideline-item">
+                    <h4><i class="fas fa-car"></i> Transportation Safety</h4>
+                    <p>Always use registered taxis, check vehicle condition, and avoid night travel on mountain roads.</p>
+                </div>
+                <div class="guideline-item">
+                    <h4><i class="fas fa-umbrella"></i> Weather Preparedness</h4>
+                    <p>Check weather forecasts, carry rain gear, and be prepared for sudden weather changes.</p>
+                </div>
+                <div class="guideline-item">
+                    <h4><i class="fas fa-mobile-alt"></i> Communication</h4>
+                    <p>Keep your phone charged, inform someone about your itinerary, and carry a power bank.</p>
+                </div>
+                <div class="guideline-item">
+                    <h4><i class="fas fa-id-card"></i> Documentation</h4>
+                    <p>Carry valid ID, permits for restricted areas, and keep copies of important documents.</p>
+                </div>
+                <div class="guideline-item">
+                    <h4><i class="fas fa-first-aid"></i> Health & Medical</h4>
+                    <p>Carry basic first aid, necessary medications, and know the location of nearest medical facilities.</p>
+                </div>
+                <div class="guideline-item">
+                    <h4><i class="fas fa-lock"></i> Personal Security</h4>
+                    <p>Keep valuables secure, avoid isolated areas, and trust your instincts about safety.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Contacts -->
+        <div class="emergency-contacts">
+            <h2><i class="fas fa-phone-alt"></i> Emergency Contacts</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Police</h4>
+                    <p>100</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Medical Emergency</h4>
+                    <p>108</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Women Helpline</h4>
+                    <p>1091</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Tourist Helpline</h4>
+                    <p>1363</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weather Widget -->
+        <div class="weather-widget">
+            <h3><i class="fas fa-cloud-sun"></i> Current Weather Conditions</h3>
+            <div class="weather-info">
+                <div class="weather-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h4>Temperature</h4>
+                    <p>22°C</p>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-eye"></i>
+                    <h4>Visibility</h4>
+                    <p>Good</p>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-wind"></i>
+                    <h4>Wind Speed</h4>
+                    <p>15 km/h</p>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-cloud-rain"></i>
+                    <h4>Rain Chance</h4>
+                    <p>30%</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 North East India Travel Safety Guide | Smart India Hackathon Project</p>
+            <p>Stay Safe, Travel Smart!</p>
+        </div>
+    </div>
+
+    <!-- SOS Modal -->
+    <div id="sosModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSOSModal()">&times;</span>
+            <h2><i class="fas fa-exclamation-triangle" style="color: #ff4444;"></i> EMERGENCY SOS</h2>
+            <p>You have activated the emergency SOS feature. Help is on the way!</p>
+            <div style="margin: 20px 0;">
+                <button onclick="callEmergency()" style="background: #ff4444; color: white; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1rem; cursor: pointer; margin: 5px;">
+                    <i class="fas fa-phone"></i> Call Emergency (100)
+                </button>
+                <button onclick="callMedical()" style="background: #28a745; color: white; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1rem; cursor: pointer; margin: 5px;">
+                    <i class="fas fa-ambulance"></i> Call Medical (108)
+                </button>
+            </div>
+            <p><strong>Your location will be shared with emergency services.</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // SOS Modal Functions
+        function openSOSModal() {
+            document.getElementById('sosModal').style.display = 'block';
+        }
+
+        function closeSOSModal() {
+            document.getElementById('sosModal').style.display = 'none';
+        }
+
+        function callEmergency() {
+            window.location.href = 'tel:100';
+        }
+
+        function callMedical() {
+            window.location.href = 'tel:108';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('sosModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Get user location for emergency services
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                console.log('Location available for emergency services');
+            });
+        }
+
+        // Add some interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click animations to feature cards
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-5px)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
